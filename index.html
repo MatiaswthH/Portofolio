@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Matias Sulca, an Informatics Engineering graduate building customer-centered software, automation, data and AI solutions.">
+  <meta name="theme-color" content="#08100e">
+  <meta property="og:title" content="Matias Sulca — Software, Data & AI">
+  <meta property="og:description" content="Informatics Engineering graduate turning business needs into practical technology solutions.">
+  <meta property="og:type" content="website">
+  <title>Matias Sulca | Software, Data & AI</title>
+  <style>
+    :root {
+      --bg: #08100e;
+      --panel: #0d1916;
+      --panel-2: #12231e;
+      --text: #f2f5ef;
+      --muted: #9aada5;
+      --line: rgba(220, 255, 237, .12);
+      --lime: #c5f36d;
+      --mint: #62dfb6;
+      --blue: #80afff;
+      --orange: #ffb168;
+      --max: 1120px;
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 88% 8%, rgba(98, 223, 182, .11), transparent 24rem),
+        radial-gradient(circle at 4% 45%, rgba(128, 175, 255, .07), transparent 26rem),
+        var(--bg);
+      max-width: 100%;
+      overflow-x: hidden;
+      font: 400 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .14;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 68px 68px;
+      mask-image: linear-gradient(#000, transparent 72%);
+    }
+    a { color: inherit; }
+    .shell { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .skip { position: fixed; top: -60px; left: 16px; z-index: 50; padding: 10px 16px; border-radius: 9px; color: var(--bg); background: var(--lime); }
+    .skip:focus { top: 16px; }
+
+    nav { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--line); background: rgba(8, 16, 14, .8); backdrop-filter: blur(18px); }
+    .nav-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { text-decoration: none; font-size: 1.05rem; font-weight: 900; letter-spacing: -.04em; }
+    .brand i { color: var(--lime); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .78rem; font-weight: 750; letter-spacing: .02em; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .contact-link { padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; color: var(--text); }
+
+    .hero { padding: 82px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 54px; align-items: center; }
+    .kicker, .section-kicker { display: flex; align-items: center; gap: 10px; color: var(--lime); font-size: .7rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .kicker::before, .section-kicker::before { content: ""; width: 24px; height: 2px; background: currentColor; }
+    .hero-grid > * { min-width: 0; }
+    h1 { max-width: 730px; margin: 20px 0 0; font-size: clamp(2.8rem, 5.7vw, 4.7rem); line-height: .98; letter-spacing: -.06em; overflow-wrap: break-word; }
+    h1 span { color: var(--lime); }
+    .hero-copy { max-width: 680px; margin: 24px 0 0; color: var(--muted); font-size: 1.04rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 99px; text-decoration: none; font-size: .8rem; font-weight: 850; transition: transform .2s, border-color .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { color: var(--bg); background: var(--lime); }
+    .button.secondary { border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+
+    .snapshot { position: relative; overflow: hidden; padding: 24px; border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(145deg, rgba(197,243,109,.11), rgba(255,255,255,.02)); }
+    .snapshot::after { content: "MS"; position: absolute; right: -8px; bottom: -70px; color: rgba(197,243,109,.06); font-size: 10rem; font-weight: 950; letter-spacing: -.12em; }
+    .available { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .72rem; }
+    .available::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 5px rgba(98,223,182,.1); }
+    .snapshot h2 { max-width: 290px; margin: 72px 0 26px; font-size: 1.55rem; line-height: 1.15; letter-spacing: -.04em; }
+    .quick-facts { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .quick-fact { padding: 12px; border: 1px solid var(--line); border-radius: 13px; background: rgba(8,16,14,.7); }
+    .quick-fact small { display: block; color: var(--muted); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
+    .quick-fact strong { font-size: .78rem; }
+
+    .proof-strip { border-block: 1px solid var(--line); }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .proof { padding: 22px; border-right: 1px solid var(--line); }
+    .proof:first-child { padding-left: 0; }
+    .proof:last-child { border: 0; }
+    .proof strong { display: block; color: var(--lime); font-size: 1.65rem; line-height: 1; letter-spacing: -.04em; }
+    .proof span { display: block; margin-top: 8px; color: var(--muted); font-size: .73rem; }
+
+    section { padding: 88px 0; scroll-margin-top: 62px; }
+    .section-head { display: grid; grid-template-columns: 180px 1fr; gap: 36px; margin-bottom: 40px; }
+    h2 { margin: 0; font-size: clamp(1.9rem, 3.5vw, 3.1rem); line-height: 1.06; letter-spacing: -.05em; }
+    .section-copy { max-width: 650px; margin: 14px 0 0; color: var(--muted); font-size: .94rem; }
+
+    .capabilities { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .capability { min-height: 205px; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.022); transition: transform .2s, border-color .2s; }
+    .capability:hover { transform: translateY(-4px); border-color: rgba(197,243,109,.35); }
+    .cap-icon { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 11px; color: var(--bg); background: var(--lime); font-size: .8rem; font-weight: 950; }
+    .capability:nth-child(2) .cap-icon { background: var(--blue); }
+    .capability:nth-child(3) .cap-icon { background: var(--mint); }
+    .capability:nth-child(4) .cap-icon { background: var(--orange); }
+    .capability h3 { margin: 32px 0 8px; font-size: 1rem; }
+    .capability p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.6; }
+
+    .experience-layout { display: grid; grid-template-columns: 190px 1fr; gap: 36px; }
+    .role-nav { position: sticky; top: 96px; align-self: start; display: grid; gap: 6px; }
+    .role-nav a { padding: 9px 12px; border-left: 2px solid var(--line); color: var(--muted); text-decoration: none; font-size: .73rem; }
+    .role-nav a:hover { border-color: var(--lime); color: var(--text); }
+    .roles { border-top: 1px solid var(--line); }
+    .role { padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .role-top { display: grid; grid-template-columns: 1fr auto; gap: 20px; }
+    .role h3 { margin: 0; font-size: 1.35rem; letter-spacing: -.035em; }
+    .company { color: var(--mint); font-size: .82rem; font-weight: 800; }
+    .period { color: var(--lime); font-size: .68rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; text-align: right; }
+    .location { display: block; margin-top: 2px; color: var(--muted); font-weight: 500; }
+    .role ul { margin: 16px 0 0; padding-left: 18px; color: var(--muted); font-size: .84rem; }
+    .role li + li { margin-top: 6px; }
+    li::marker { color: var(--lime); }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .tag { padding: 5px 10px; border: 1px solid var(--line); border-radius: 99px; background: rgba(255,255,255,.02); color: #c5d3cd; font-size: .65rem; }
+
+    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .project { position: relative; display: flex; flex-direction: column; min-height: 390px; overflow: hidden; padding: 26px; border: 1px solid var(--line); border-radius: 26px; background: var(--panel); transition: transform .25s, border-color .25s; }
+    .project:hover { transform: translateY(-5px); border-color: rgba(197,243,109,.35); }
+    .project:nth-child(2) { background: linear-gradient(145deg, rgba(128,175,255,.1), var(--panel)); }
+    .project-type { display: flex; justify-content: space-between; color: var(--muted); font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .project h3 { max-width: 440px; margin: 54px 0 12px; font-size: 1.75rem; line-height: 1.05; letter-spacing: -.05em; }
+    .project > p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .project ul { margin: 18px 0 24px; padding-left: 18px; color: var(--muted); font-size: .78rem; }
+    .project .tags { margin-top: auto; }
+
+    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .skill-card { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.022); }
+    .skill-card h3 { margin: 0 0 6px; font-size: 1rem; }
+    .skill-card > p { margin: 0 0 20px; color: var(--muted); font-size: .74rem; }
+    .skill-row { display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 14px; padding: 9px 0; border-top: 1px solid var(--line); }
+    .skill-row span { font-size: .75rem; font-weight: 750; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-pills i { padding: 4px 8px; border-radius: 7px; color: var(--muted); background: rgba(255,255,255,.04); font-size: .64rem; font-style: normal; }
+    .education { display: grid; grid-template-columns: 1.35fr .65fr; gap: 14px; margin-top: 14px; }
+    .edu-card { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.022); }
+    .edu-card small { color: var(--lime); font-size: .65rem; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+    .edu-card h3 { margin: 24px 0 6px; font-size: 1.2rem; letter-spacing: -.03em; }
+    .edu-card p { margin: 0; color: var(--muted); font-size: .78rem; }
+
+    .contact-card { padding: clamp(30px, 6vw, 60px); border: 1px solid var(--line); border-radius: 30px; background: linear-gradient(135deg, var(--panel-2), rgba(197,243,109,.08)); text-align: center; }
+    .contact-card .section-kicker { justify-content: center; }
+    .contact-card h2 { max-width: 680px; margin: 18px auto 0; }
+    .contact-card p { max-width: 570px; margin: 14px auto 0; color: var(--muted); font-size: .9rem; }
+    .contact-card .actions { justify-content: center; }
+    footer { padding: 26px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s, transform .6s; }
+    .reveal.visible { opacity: 1; transform: none; }
+    :focus-visible { outline: 3px solid rgba(197,243,109,.7); outline-offset: 4px; }
+
+    @media (max-width: 850px) {
+      .nav-links a:not(.contact-link) { display: none; }
+      .hero-grid, .section-head, .experience-layout, .education { grid-template-columns: 1fr; }
+      .snapshot h2 { margin-top: 48px; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .proof:nth-child(2) { border-right: 0; }
+      .proof:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .capabilities { grid-template-columns: 1fr 1fr; }
+      .role-nav { display: none; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      .hero { padding: 58px 0 44px; }
+      h1 { font-size: clamp(2.55rem, 12vw, 3.5rem); }
+      .kicker { font-size: .62rem; letter-spacing: .1em; }
+      .snapshot { max-width: 100%; }
+      section { padding: 68px 0; }
+      .capabilities, .projects, .skills-layout { grid-template-columns: 1fr; }
+      .capability { min-height: 180px; }
+      .project { min-height: auto; }
+      .role-top { grid-template-columns: 1fr; }
+      .period { text-align: left; }
+      .skill-row { grid-template-columns: 1fr; gap: 7px; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <nav aria-label="Primary navigation">
+    <div class="shell nav-inner">
+      <a class="brand" href="#home">Matias<i>.</i></a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a class="contact-link" href="#contact">Let's talk ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="hero" id="home">
+      <div class="shell hero-grid">
+        <div>
+          <div class="kicker">Informatics Engineering · Lima, Peru</div>
+          <h1>Building useful tech for <span>real needs.</span></h1>
+          <p class="hero-copy">I'm Raúl Matias Sulca Luján, an Informatics Engineering graduate who turns business needs into customer-centered software, automation, data and AI solutions.</p>
+          <div class="actions"><a class="button primary" href="#experience">Explore my work ↓</a><a class="button secondary" href="assets/Matias-Sulca-CV.pdf" target="_blank" rel="noopener">View résumé ↗</a></div>
+        </div>
+        <aside class="snapshot" aria-label="Professional snapshot">
+          <span class="available">Client Engineering Student at IBM</span>
+          <h2>Technical depth with a product and client mindset.</h2>
+          <div class="quick-facts"><div class="quick-fact"><small>Focus</small><strong>Software & AI</strong></div><div class="quick-fact"><small>Strength</small><strong>Problem solving</strong></div><div class="quick-fact"><small>English</small><strong>Advanced C2</strong></div><div class="quick-fact"><small>Based in</small><strong>Lima, Peru</strong></div></div>
+        </aside>
+      </div>
+    </header>
+
+    <div class="proof-strip"><div class="shell proof-grid"><div class="proof"><strong>15+</strong><span>software architectures documented</span></div><div class="proof"><strong>15+</strong><span>commission schemes migrated to SQL</span></div><div class="proof"><strong>7+</strong><span>operational processes automated</span></div><div class="proof"><strong>12+</strong><span>KPIs designed for operational control</span></div></div></div>
+
+    <section id="capabilities">
+      <div class="shell"><div class="section-head reveal"><div class="section-kicker">01 · What I bring</div><div><h2>Engineering with business context.</h2><p class="section-copy">I combine product thinking, technical execution and clear communication to move from ambiguous needs to working solutions.</p></div></div>
+        <div class="capabilities"><article class="capability reveal"><span class="cap-icon">01</span><h3>Software Engineering</h3><p>Web and mobile applications built on solid programming, database and architecture foundations.</p></article><article class="capability reveal"><span class="cap-icon">02</span><h3>Data & Automation</h3><p>SQL migrations, dashboards, scripts and workflows that reduce manual effort and improve visibility.</p></article><article class="capability reveal"><span class="cap-icon">03</span><h3>Applied AI</h3><p>AI agents and enterprise platforms used to improve customer experiences and internal operations.</p></article><article class="capability reveal"><span class="cap-icon">04</span><h3>Product & Client</h3><p>Requirements discovery, roadmaps and solution design aligned with adoption and business value.</p></article></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell"><div class="section-head reveal"><div class="section-kicker">02 · Experience</div><div><h2>From consulting to hands-on delivery.</h2><p class="section-copy">Work across enterprise technology, architecture, process automation and digital product development.</p></div></div>
+        <div class="experience-layout"><aside class="role-nav" aria-label="Experience index"><a href="#ibm">IBM</a><a href="#consulting">Independent</a><a href="#ms">Management Solutions</a><a href="#claro">Claro Peru</a><a href="#pasalo">Pásalo Academia</a></aside>
+          <div class="roles">
+            <article class="role reveal" id="ibm"><div class="role-top"><div><h3>Client Engineering Student</h3><div class="company">IBM</div></div><div class="period">May 2026 — Present<span class="location">Lima, Peru</span></div></div><ul><li>Designed a technical demo to synchronize certificates between Azure Key Vault and HashiCorp Vault.</li><li>Designed client modernization strategies with IBM Bob to support technology portfolio adoption.</li><li>Built systems for corporate events and internal operational improvements.</li><li>Position and integrate Data & Automation solutions including OpenPages and Watson Orchestrate.</li></ul><div class="tags"><span class="tag">IBM Bob</span><span class="tag">Watson Orchestrate</span><span class="tag">OpenPages</span><span class="tag">HashiCorp Vault</span><span class="tag">Azure</span></div></article>
+            <article class="role reveal" id="consulting"><div class="role-top"><div><h3>Technology Consultant</h3><div class="company">Independent</div></div><div class="period">Jan — May 2026<span class="location">Lima, Peru</span></div></div><ul><li>Built a WhatsApp solution with Meta API to automate tax inquiries and accounting reports.</li><li>Developed Dockerized Playwright web scraping to streamline data extraction and secure SUNAT access.</li><li>Implemented a tax deadline dashboard with preventive email notifications.</li></ul><div class="tags"><span class="tag">Meta API</span><span class="tag">Docker</span><span class="tag">Playwright</span><span class="tag">Web scraping</span></div></article>
+            <article class="role reveal" id="ms"><div class="role-top"><div><h3>Consulting Intern</h3><div class="company">Management Solutions</div></div><div class="period">Sep — Dec 2025<span class="location">Lima, Peru</span></div></div><ul><li>Analyzed and documented 15+ software architectures with UML and Markdown, ensuring clarity for the development phase.</li></ul><div class="tags"><span class="tag">Software Architecture</span><span class="tag">UML</span><span class="tag">Markdown</span></div></article>
+            <article class="role reveal" id="claro"><div class="role-top"><div><h3>Commissions Intern</h3><div class="company">Claro Peru</div></div><div class="period">Nov 2024 — Jul 2025<span class="location">Lima, Peru</span></div></div><ul><li>Led the migration of 15+ commission schemes from Excel to SQL and Power BI models with DAX.</li><li>Automated 7+ processes with Python, Selenium, Tkinter and Power Automate.</li><li>Designed an operational dashboard with 12+ KPIs for delivery and payment tracking.</li></ul><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Automate</span></div></article>
+            <article class="role reveal" id="pasalo"><div class="role-top"><div><h3>Co-founder</h3><div class="company">Pásalo Academia</div></div><div class="period">Jul 2023 — Present<span class="location">Lima, Peru</span></div></div><ul><li>Led an academic portal implementation as Product Owner, defining the roadmap and ensuring delivery of key features.</li></ul><div class="tags"><span class="tag">Product Ownership</span><span class="tag">Roadmap</span><span class="tag">EdTech</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="shell"><div class="section-head reveal"><div class="section-kicker">03 · Selected projects</div><div><h2>Ideas shaped into products.</h2><p class="section-copy">Projects spanning human-centered mobile design, AI agents and blockchain-based payment architecture.</p></div></div>
+        <div class="projects"><article class="project reveal"><div class="project-type"><span>Thesis project</span><span>01</span></div><h3>Mobile app for youth development</h3><p>A mobile experience taken from user research through iterative implementation.</p><ul><li>Designed the UI/UX in Figma using Human-Centered Design methods.</li><li>Conducted requirements discovery and usability testing.</li><li>Built the mobile solution with React Native and Firebase Storage.</li></ul><div class="tags"><span class="tag">React Native</span><span class="tag">Firebase</span><span class="tag">Figma</span><span class="tag">UX Research</span></div></article>
+          <article class="project reveal"><div class="project-type"><span>Startup</span><span>02</span></div><h3>Veridica Labs: automated marketing with smart contracts</h3><p>A customer acquisition workflow paired with verifiable Web3 payments.</p><ul><li>Designed Vera, an OpenClaw AI agent that automates customer acquisition.</li><li>Built an Escrow payment architecture with Solidity smart contracts on Syscoin.</li><li>Automated fund release after real conversion verification.</li></ul><div class="tags"><span class="tag">Node.js</span><span class="tag">AI Agents</span><span class="tag">Solidity</span><span class="tag">Syscoin</span><span class="tag">OpenClaw</span></div></article></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="shell"><div class="section-head reveal"><div class="section-kicker">04 · Toolkit</div><div><h2>A practical, end-to-end stack.</h2><p class="section-copy">Tools are grouped by how I apply them, with proficiency levels aligned to my résumé.</p></div></div>
+        <div class="skills-layout"><article class="skill-card reveal"><h3>Core engineering</h3><p>Languages and databases</p><div class="skill-row"><span>Advanced</span><div class="skill-pills"><i>Python</i><i>Java</i><i>SQL</i><i>JavaScript</i><i>C++</i></div></div><div class="skill-row"><span>Intermediate</span><div class="skill-pills"><i>C#</i></div></div></article><article class="skill-card reveal"><h3>Frameworks & cloud</h3><p>Application delivery</p><div class="skill-row"><span>Intermediate</span><div class="skill-pills"><i>Node.js</i><i>Spring Boot</i><i>AWS</i><i>Docker Compose</i><i>React</i><i>Angular</i><i>Tailwind</i><i>Git</i></div></div></article><article class="skill-card reveal"><h3>Enterprise & AI</h3><p>IBM portfolio and emerging tools</p><div class="skill-row"><span>Intermediate</span><div class="skill-pills"><i>Watson Orchestrate</i><i>IBM Bob</i><i>OpenPages</i><i>HashiCorp Vault</i><i>Claude Code</i></div></div></article><article class="skill-card reveal"><h3>Languages</h3><p>Communication</p><div class="skill-row"><span>Native</span><div class="skill-pills"><i>Spanish</i></div></div><div class="skill-row"><span>Advanced C2</span><div class="skill-pills"><i>English</i></div></div><div class="skill-row"><span>Basic A2</span><div class="skill-pills"><i>French</i></div></div></article></div>
+        <div class="education"><article class="edu-card reveal"><small>2020 — 2025 · Lima</small><h3>BSc in Informatics Engineering</h3><p>Pontifical Catholic University of Peru · Concentration in Artificial Intelligence.</p></article><article class="edu-card reveal"><small>2023 · Berkeley, USA</small><h3>Academic English</h3><p>Kaplan International Languages · Certificate of Achievement.</p></article></div>
+      </div>
+    </section>
+
+    <section id="contact"><div class="shell"><div class="contact-card reveal"><div class="section-kicker">Let's connect</div><h2>Have a challenge worth solving?</h2><p>I'm open to conversations about software engineering, automation, data, AI and professional opportunities.</p><div class="actions"><a class="button primary" href="mailto:m.sulcal@pucp.edu.pe">Email me ↗</a><a class="button secondary" href="https://linkedin.com/in/matias-sulca-lujan" target="_blank" rel="noopener">LinkedIn ↗</a><a class="button secondary" href="https://wa.me/51940050382" target="_blank" rel="noopener">WhatsApp ↗</a></div></div></div></section>
+  </main>
+
+  <footer><div class="shell footer-inner"><span>© <span id="year"></span> Raúl Matias Sulca Luján</span><span>Lima, Peru · Engineering with purpose</span></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    }), { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+  </script>
+</body>
+</html>
