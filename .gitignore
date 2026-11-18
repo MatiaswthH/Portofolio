@@ -1,0 +1,11 @@
+# Editor y sistema operativo
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Dependencias y artefactos, si algún día se añade un build
+node_modules/
+dist/
+.cache/
